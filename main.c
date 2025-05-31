@@ -2,19 +2,33 @@
 #include <stdlib.h>
 #include <time.h>
 
+void shi();
+void ka();
+void no();
+void ko();
+void ta();
+void nn();
+
+int count = 20;
+
 int main(void)
 {
+  srand(time(NULL));
   shi();
+  printf("\n");
   return 0;
 }
 
 void shi()
 {
-  printf("し");
-  if(rand() & 1)
-    ka();
-  else
-    ta();
+  if (count > 0)
+  {
+    printf("し");
+    if (rand() & 1)
+      ka();
+    else
+      ta();
+  }
 }
 
 void ka()
@@ -32,13 +46,13 @@ void no()
 void ko()
 {
   printf("こ");
-  int v = rand() % 3;
-  if(v == 0)
-    no();
+  int v = rand() % 4;
+  if (v == 0)
+    shi();
   else if (v == 1)
     ko();
   else
-    shi();
+    no();
 }
 
 void ta()
@@ -50,5 +64,12 @@ void ta()
 void nn()
 {
   printf("ん");
-  shi();
+  if (rand() & 1)
+    ta();
+  else
+  {
+    count--;
+    printf("\n");
+    shi();
+  }
 }
