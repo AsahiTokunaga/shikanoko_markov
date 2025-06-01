@@ -21,7 +21,7 @@ void f(int i){
   if(!c&&!i)return;
   printf("%s",s[i]);
   if(i==5){
-    if(rand()&1)f(4);else{c--;printf("\n");f(0);}
+    if(rand()&1)f(4);else{printf("\n");}
     return;
   }
   if(i==3){
@@ -32,4 +32,4 @@ void f(int i){
   f(i==0?rand()&1?1:4:i==1?2:i==2?3:5);
 }
 
-int main(int argc, char** argv){if(argc<2){printf("Frequency not found. (e.g. ./main 10)\n");return 1;}srand(get_seed());c=atoi(argv[1]);f(0);return 0;}
+int main(int argc, char** argv){if(argc<2){printf("Frequency not found. (e.g. ./main 10)\n");return 1;}srand(get_seed());c=atoi(argv[1]);while(c>0){f(0);c--;};return 0;}
